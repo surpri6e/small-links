@@ -4,7 +4,6 @@ import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { DocumentReference, doc } from 'firebase/firestore';
 import { ISmallLink } from '../../types/ISmallLink';
 import { db } from '../../main';
-import { domen } from '../../utils/paths';
 
 const LinkPage = () => {
    const { id } = useParams();
@@ -16,7 +15,7 @@ const LinkPage = () => {
          {!loading && value && (
             <p>
                Основная ссылка -{' '}
-               <a href={domen + value.basicLink} target='_blank'>
+               <a href={value.basicLink} target='_blank'>
                   здесь
                </a>
                .
