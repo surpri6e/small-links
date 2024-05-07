@@ -24,14 +24,14 @@ const MainPage = () => {
       <div className='main'>
          <input type='text' value={link} onChange={(e) => setLink(e.target.value)} className={linkError ? 'input--error' : ''} />
          <button
-            onClick={() => {
+            onClick={async () => {
                if (!validateLink(link)) {
                   setLinkError(true);
                   setTimeout(() => setLinkError(false), 1500);
                }
 
                if (validateLink(link)) {
-                  FirebaseApi.saveLink(smallLink, link);
+                  await FirebaseApi.saveLink(smallLink, link);
                   setIsClicked(true);
                }
             }}

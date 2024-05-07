@@ -4,14 +4,13 @@ import { IInfo } from '../types/IInfo';
 import { ISmallLink } from '../types/ISmallLink';
 
 export default class FirebaseApi {
-   public static saveIp = async () => {
-      await fetch('https://api.ipify.org?format=json')
+   public static saveIp = () => {
+      fetch('https://api.ipify.org?format=json')
          .then((response) => response.json())
-         .then(
-            async (data) =>
-               await setDoc(doc(db, 'ip', data.ip as string), {
-                  ip: data.ip as string,
-               } as IInfo),
+         .then(async (data) =>
+            setDoc(doc(db, 'ip', data.ip as string), {
+               ip: data.ip as string,
+            } as IInfo),
          );
    };
 
