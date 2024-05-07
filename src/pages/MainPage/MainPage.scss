@@ -1,0 +1,60 @@
+.main {
+   input {
+      width: 300px;
+      background-color: darken(white, 5);
+      margin-right: 20px;
+   }
+
+   button {
+      color: white;
+      background-color: purple;
+
+      &:hover {
+         background-color: lighten(purple, 5);
+      }
+   }
+
+   input,
+   button {
+      font-size: 16px;
+      transition: all 150ms ease-in;
+      border-radius: 5px;
+      padding: 8px;
+   }
+}
+
+.main_block {
+   margin-top: 10px;
+}
+
+.main_button {
+   width: 100%;
+}
+
+@media screen and (max-width: 460px) {
+   .main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      & > *:not(:last-child) {
+         margin-bottom: 20px;
+      }
+
+      input,
+      button {
+         width: 100%;
+      }
+
+      input {
+         margin-right: 0px;
+      }
+   }
+   .main_block {
+      margin-top: 0px;
+   }
+}
+
+.input--error {
+   border: 1px solid darken(red, 20);
+}
